@@ -41,8 +41,9 @@ public class Main implements CommandLineRunner {
         final InputDTO inputDTO = new InputDTO("12345678901", "registration", "tmp");
         final OutputDTO outputDTO = exportRegistrationUC.execute(inputDTO);
 
-        System.out.println(outputDTO.getFullFileName());
-        System.out.println(repository.findByRegistrationNumber("35239510890").getName());
+        System.out.println("Output: "+outputDTO.getFullFileName());
+        final String cpf = "22222222222";
+        System.out.println(String.format("Titular do CPF %s: %s", cpf, repository.findByRegistrationNumber(cpf).getName()));
     }
 
     public static void main(String[] args) throws Exception{
